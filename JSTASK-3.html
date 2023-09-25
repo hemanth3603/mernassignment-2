@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>TASK-3</title>
+</head>
+
+<body>
+    <div class="container-fluid  bg-dark text-white " style="height: 900px;">
+        <form class="mt-4=">
+            <div class="form-group">
+                <label for="firstNumber">1st Number:</label>
+                <input type="text" class="form-control" id="firstNumber" />
+            </div>
+            <div class="form-group">
+                <label for="secondNumber">2nd Number:</label>
+                <input type="text" class="form-control" id="secondNumber" />
+            </div>
+            <button type="button" class="btn btn-success" onClick="multiplyBy()">Multiply</button>
+            <button type="button" class="btn btn-success" onClick="divideBy()">Divide</button>
+        </form>
+        <p class="mt-3">The Result is: <br>
+            <span id="result"></span>
+        </p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function multiplyBy() {
+            num1 = document.getElementById("firstNumber").value;
+            num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").innerHTML = num1 * num2;
+        }
+
+        function divideBy() {
+            num1 = document.getElementById("firstNumber").value;
+            num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").innerHTML = num1 / num2;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>TASK-7</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .train {
+            position: relative;
+            width: 400px; /* Adjust the total width to accommodate two compartments */
+            height: 100px;
+            background-color: #0077c2;
+            border-radius: 15px;
+            display: flex;
+            animation: moveTrain 5s linear infinite alternate;
+        }
+
+        .train-body {
+            flex: 1; /* Adjust the flex value to control compartment width */
+            border-radius: 10px;
+            background-color: #004477;
+            margin: 10px;
+        }
+
+        .train-wheels {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .train-wheel {
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: spinWheels 5s linear infinite alternate; /* Add wheel animation */
+        }
+
+        @keyframes moveTrain {
+            0% {
+                transform: translateX(0px);
+            }
+
+            100% {
+                transform: translateX(1150px); /* Adjust the distance as needed */
+            }
+        }
+
+        @keyframes spinWheels {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg); /* Rotate the wheels 360 degrees */
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="train">
+        <div class="train-wheels">
+            <div class="train-wheel"></div>
+            <!-- <div class="train-wheel"></div> -->
+        </div>
+        <div class="train-body"></div>
+        <div class="train-wheels">
+            <div class="train-wheel"></div>
+            <!-- <div class="train-wheel"></div> -->
+        </div>
+        <div class="train-body"></div> <!-- Second compartment -->
+        <div class="train-wheels">
+            <div class="train-wheel"></div>
+            <!-- <div class="train-wheel"></div> -->
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly align-items-center">
+        <button class="btn btn-outline-dark btn-lg btn-warning" id="startButton">Start</button>
+        <button class="btn btn-outline-dark btn-lg btn-warning" id="stopButton">Stop</button>
+    </div>
+    <script>
+        const train = document.querySelector('.train');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        let animationInterval;
+
+        startButton.addEventListener('click', () => {
+            train.style.animationPlayState = 'running';
+            document.querySelectorAll('.train-wheel').forEach(wheel => {
+                wheel.style.animationPlayState = 'running';
+            });
+        });
+
+        stopButton.addEventListener('click', () => {
+            train.style.animationPlayState = 'paused';
+            document.querySelectorAll('.train-wheel').forEach(wheel => {
+                wheel.style.animationPlayState = 'paused';
+            });
+        });
+
+    </script>
+</body>
+
+</html>
